@@ -1,0 +1,25 @@
+#navbarNav{
+    justify-content: right;
+}
+
+.navbar{
+    padding-right: 30px;
+    padding-left: 30px;
+}
+.navbar-brand{
+    color: white;
+}
+
+.nav-link{
+    color:white;
+}
+.nav-link:hover{
+    color:black !important; 
+}
+.navbar-brand:hover{
+    color: gray !important;
+}
+
+.navbar-toggler{
+    color: white;
+}
