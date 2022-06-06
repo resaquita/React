@@ -1,6 +1,3 @@
-#navbarNav{
-    justify-content: right;
-}
 
 .navbar{
     padding-right: 30px;
@@ -22,4 +19,24 @@
 
 .navbar-toggler{
     color: white;
+    position: relative;
+    margin-right: 20px;
+    
 }
+
+@media only screen and (max-width: 400px) {
+    .navbar-toggler{
+        display: flex;
+        width: 40px;
+        text-align: center;
+        align-items: center;
+
+    }
+    .navbar-toggler-icon{
+        width: 30px;
+        height: 30px;
+        background-size: 140%;
+        
+    }   
+}
+
