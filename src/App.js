@@ -6,7 +6,7 @@ import { ItemListContainer } from './components/ItemListContainer/ItemListContai
 function App() {
   return <>
   <Navbar />
-  <ItemListContainer />
+  <ItemListContainer nombreUsuario ="Usuario" />
   
   </>;
 }
