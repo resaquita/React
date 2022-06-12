@@ -1,0 +1,17 @@
+.barraContador{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    }
+.card{
+    width: 400px;
+    height: 150px;
+    align-items: center;
+    background-color: rgba(238, 235, 235, 0.568);
+}
+.rowItemCount{
+    justify-content: center;
+}
+h4{
+    width: 10px;
+}
