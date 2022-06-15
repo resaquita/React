@@ -1,0 +1,5 @@
+.rowItemList{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}

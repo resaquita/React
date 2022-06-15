@@ -16,14 +16,14 @@ export const ItemCount = () => {
     }
     return (
     <div className="row rowItemCount">
-        <div className="card">
-            <h3>Musica</h3>
-            <div className="barraContador col-lg-8">
+        <div className="rowItemCountDiv">
+            <div className="barraContador">
                 <button onClick={(e)=>suma()} className="btn btnSuma">+</button>
                 <h4>{count}</h4>
                 <button onClick={(e)=>resta()} className="btn btnResta">-</button>
             </div>
             <button onClick={(e)=>suma()} className="btn btnAgregar btn-primary">Add Item</button>
+            <button className="btn btn-primary">Ver mas</button>
         </div>
     </div>
     )
