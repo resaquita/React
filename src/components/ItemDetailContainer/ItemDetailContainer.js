@@ -1,30 +1,37 @@
 import React, {useEffect, useState} from "react"
+import { useParams } from "react-router-dom";
 import { ItemD } from "../ItemD/ItemD";
+
+import { itemStock } from "../ItemStock";
 
 
 export const ItemDetailContainer = () => {
     
     const getItems = new Promise((resolve) => {
-        const item = {id: 1, title: "Musica de aventuras", description: "Music for adventure games. The stipulated lenght of each track is two minutes. All tracks are loopable.", price: "100", pictureUrl: "https://api.hub.jhu.edu/factory/sites/default/files/styles/soft_crop_2400/public/video_game_music_013120%20copy.jpg"}
-        
+        const items = itemStock
         setTimeout(()=>{
-            resolve(item)
+            resolve(items)
         },2000);
     });
 
-    const [items, setItems] = useState({})
+    const [items, setItems] = useState([])
 
     useEffect(() => {
         getItems.then(items => setItems(items))
     },[])
 
+    const {id} = useParams()
+
+    let result = []
+
+    result = items.filter( items => items.id == id);
+
     return (
         <>
-        {items.id !== undefined && <ItemD {...items}/>}
-        </>
-
-       
-        
+        {items?.length <= 0? <h1>loading...</h1> : result.map((item) => (
+             <ItemD key={item.id} {...item}/>
+            ))}
+        </>  
     )}
     
             

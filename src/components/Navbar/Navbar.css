@@ -2,19 +2,20 @@
 .navbar{
     padding-right: 30px;
     padding-left: 30px;
+    background-color: rgb(240, 45, 136) !important;
 }
 .navbar-brand{
-    color: white;
+    color: white !important;
 }
 
 .nav-link{
-    color:white;
+    color:white !important  ;
 }
 .nav-link:hover{
     color:black !important; 
 }
 .navbar-brand:hover{
-    color: gray !important;
+    color: rgb(0, 0, 0) !important;
 }
 
 .navbar-toggler{

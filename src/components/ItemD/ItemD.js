@@ -6,7 +6,8 @@ import { ItemCount } from "../ItemCount/ItemCount"
 
 import React from "react"
 
-export const ItemD = ({title, pictureUrl, price, description}) => {
+export const ItemD = ({title, pictureUrl, price, description,id}) => {
+    
     return (
     <section className="row">
         <div className="card col-lg-4">

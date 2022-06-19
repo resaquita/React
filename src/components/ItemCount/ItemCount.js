@@ -15,16 +15,13 @@ export const ItemCount = () => {
       return count < stock && setCount(count + 1)
     }
     return (
-    <div className="row rowItemCount">
-        <div className="rowItemCountDiv">
-            <div className="barraContador">
-                <button onClick={(e)=>suma()} className="btn btnSuma">+</button>
-                <h4>{count}</h4>
-                <button onClick={(e)=>resta()} className="btn btnResta">-</button>
-            </div>
-            <button onClick={(e)=>suma()} className="btn btnAgregar btn-primary">Add Item</button>
-            <button className="btn btn-primary">Ver mas</button>
-        </div>
-    </div>
+            <>
+                <div className="barraContador">
+                    <button onClick={(e)=>suma()} className="btn btnSuma">+</button>
+                    <h4>{count}</h4>
+                    <button onClick={(e)=>resta()} className="btn btnResta">-</button>
+                </div>
+                <button onClick={(e)=>suma()} className="btn btnAgregar btn-primary">Add Item</button>
+            </>
     )
 }
