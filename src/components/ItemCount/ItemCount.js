@@ -2,26 +2,28 @@ import "./ItemCount.css"
 
 import React, { useState } from "react"
 
-export const ItemCount = () => {
-    const [count, setCount] = useState(0);
+import {useNavigate} from "react-router-dom"
+
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+
+export const ItemCount = ({changeCount}) => {
+    const [contadorInterno, setCount] = useState(0);
 
     const [stock] = useState(5)
 
-    const resta = () => {
-     return count > 0 && setCount(count - 1)
-    }
+    let navigate = useNavigate()
 
-    const suma = () => {
-      return count < stock && setCount(count + 1)
-    }
     return (
             <>
                 <div className="barraContador">
-                    <button onClick={(e)=>suma()} className="btn btnSuma">+</button>
-                    <h4>{count}</h4>
-                    <button onClick={(e)=>resta()} className="btn btnResta">-</button>
+                    <button onClick={(e)=>{if(contadorInterno<stock){changeCount((count) => count + 1);setCount(contadorInterno +1)}}} className="btn btnSuma">+</button>
+                    <button onClick={(e)=>{if(contadorInterno>0){changeCount((count) => count - 1);setCount(contadorInterno -1)}}} className="btn btnResta">-</button>
                 </div>
-                <button onClick={(e)=>suma()} className="btn btnAgregar btn-primary">Add Item</button>
+                <button onClick={(e)=>{if(contadorInterno>0){changeCount(contadorInterno); navigate("/cart")}else{toast.error("Cart is empty!")}}} className="btn btnAgregar btn-primary">Finalizar compra</button>
+                <ToastContainer />
             </>
     )
 }
+
