@@ -2,7 +2,7 @@ import "./Navbar.css"
 
 import React from "react"
 import { CartWidget } from "../CartWidget/CartWidget"
-import {BrowserRouter, Route, Routes, Link, NavLink} from "react-router-dom"
+import {Link, NavLink} from "react-router-dom"
 
 export const Navbar = () => {
     return ( <div><nav className="navbar navbar-expand-lg navbar-light bg-light">

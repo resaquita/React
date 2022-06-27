@@ -27,11 +27,11 @@ export const ItemDetailContainer = () => {
     result = items.filter( items => items.id == id);
 
     return (
-        <>
-        {items?.length <= 0? <h1>loading...</h1> : result.map((item) => (
-             <ItemD key={item.id} {...item}/>
-            ))}
-        </>  
+        <section className="row section2">
+            {items?.length <= 0? <h1>loading...</h1> : result.map((item) => (
+                <ItemD key={item.id} {...item}/>
+                ))}
+        </section> 
     )}
     
             
