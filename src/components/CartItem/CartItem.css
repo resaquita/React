@@ -16,6 +16,16 @@
     border: solid 1px;
 }
 
+.emptyCartImg{
+    width: 30%;
+}
+
+.emptyCartRow{
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 50%;
+}
+
 .cartRow{
     align-items: center;
     justify-content: center;
@@ -32,8 +42,8 @@
 .cartBotRow{
     margin-top: 50px;
     height: 100px;
-    width: 30%;
     align-items: center;
+    justify-content: center;
 }
 h1{
     font-size: 100px;

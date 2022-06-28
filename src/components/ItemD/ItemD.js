@@ -51,7 +51,10 @@ export const ItemD = ({title, pictureUrl, price, description}) => {
             <h3>${price}</h3>
             <h3>{count}</h3>
             <ItemCount changeCount={onAdd}/>
-            <button onClick={(e)=>{if(count>0){cartPush(title,price,count,pictureUrl)}else{toast.error("Cart is empty!")}}} className="btn btnAgregar btn-primary">Checkout</button>
+            <div>
+                <button onClick={(e)=>{if(count>0){cartPush(title,price,count,pictureUrl)}else{toast.error("No items selected!")}}} className="btn btnAgregar btn-primary">Add to cart</button>
+                <button onClick={(e)=>{if(cart.length>0){navigate("/cart")}else{toast.error("Cart is empty!")}}} className="btn btnAgregar btn-primary">Checkout</button>
+            </div>
             <ToastContainer />
         </div>
         <div className="col-lg-4 pDescription">
