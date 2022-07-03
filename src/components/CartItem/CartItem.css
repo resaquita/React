@@ -17,7 +17,7 @@
 }
 
 .emptyCartImg{
-    width: 30%;
+    width: 25%;
 }
 
 .emptyCartRow{
@@ -39,6 +39,13 @@
     height: 50%;
 }
 
+.btnBack{
+    font-size: 30px;
+    width: 10%;
+}
+.btnBackRow{
+    margin-top: 10px;
+}
 .cartBotRow{
     margin-top: 50px;
     height: 100px;

@@ -36,14 +36,12 @@ export const ItemD = ({title, pictureUrl, price, description}) => {
             quantityUpdate(title, quantity)
         }else{
              cartUpdate({title, price, quantity, pictureUrl});
-        console.log("agregando")
+            console.log("agregando")
     }
     }
 
     let navigate = useNavigate()
-
     
-
     return (
     <>
         <div className="card col-lg-4">
@@ -53,7 +51,7 @@ export const ItemD = ({title, pictureUrl, price, description}) => {
             <ItemCount changeCount={onAdd}/>
             <div>
                 <button onClick={(e)=>{if(count>0){cartPush(title,price,count,pictureUrl)}else{toast.error("No items selected!")}}} className="btn btnAgregar btn-primary">Add to cart</button>
-                <button onClick={(e)=>{if(cart.length>0){navigate("/cart")}else{toast.error("Cart is empty!")}}} className="btn btnAgregar btn-primary">Checkout</button>
+                {(cart.length>0)? <button onClick={(e)=>{if(cart.length>0){navigate("/cart")}else{toast.error("Cart is empty!")}}} className="btn btnAgregar btn-primary">Checkout</button>:<></>}
             </div>
             <ToastContainer />
         </div>

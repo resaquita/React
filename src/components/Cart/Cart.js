@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { CartItem } from "../CartItem/CartItem";
+import { EmptyCart } from "./EmptyCart";
 
 export const Cart = () =>{
 
@@ -12,7 +13,7 @@ export const Cart = () =>{
         <div className="row cartRow">
             <h1>Cart</h1>
             
-        {cart?.length <= 0? <div className="emptyCartRow"><img className="emptyCartImg" alt="empty" src="https://thumbs.gfycat.com/LonelyDazzlingBoar-size_restricted.gif"></img></div> : <div> {cart.map((item) => (
+        {cart?.length <= 0? <EmptyCart/> : <div> {cart.map((item) => (
             <>
             <div className="row rowItemList">
             <CartItem key={item.id} {...item}/>

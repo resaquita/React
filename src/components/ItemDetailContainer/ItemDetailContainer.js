@@ -1,36 +1,31 @@
 import React, {useEffect, useState} from "react"
 import { useParams } from "react-router-dom";
 import { ItemD } from "../ItemD/ItemD";
-
-import { itemStock } from "../ItemStock";
-
+import {doc, getDoc,getFirestore} from "firebase/firestore";
+import { BounceLoader } from "react-spinners";
 
 export const ItemDetailContainer = () => {
     
-    const getItems = new Promise((resolve) => {
-        const items = itemStock
-        setTimeout(()=>{
-            resolve(items)
-        },2000);
-    });
-
-    const [items, setItems] = useState([])
-
-    useEffect(() => {
-        getItems.then(items => setItems(items))
-    },[])
-
     const {id} = useParams()
 
-    let result = []
+    const [item, setItem] = useState()
 
-    result = items.filter( items => items.id == id);
+    useEffect(()=>{
+        const db=getFirestore();
+
+        const itemRef = doc(db,"Productos",`${id}`);
+        getDoc(itemRef).then((snapshot)=>{
+            if (snapshot.exists()){
+                setItem({id:snapshot.id, ...snapshot.data()});
+            }
+        })
+
+    },[id]) 
+
 
     return (
         <section className="row section2">
-            {items?.length <= 0? <h1>loading...</h1> : result.map((item) => (
-                <ItemD key={item.id} {...item}/>
-                ))}
+            {item?  <ItemD {...item}/> : <div className="row bounce"><BounceLoader color="#ff0099" size={150}/></div>}
         </section> 
     )}
     

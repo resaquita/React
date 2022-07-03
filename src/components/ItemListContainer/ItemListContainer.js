@@ -2,42 +2,43 @@ import "./ItemListContainer.css"
 
 import React, {useEffect, useState} from "react"
 import { Item } from "../ITem/Item";
-import { itemStock } from "../ItemStock";
 import { useParams } from "react-router-dom";
-
+import {collection, getDocs, getFirestore,query,where} from "firebase/firestore";
+import { BounceLoader } from "react-spinners";
 
 export const ItemListContainer = () => {
-    const myPromise = new Promise((resolve,reject) => {
-
-        setTimeout(()=>{if (itemStock.length>0){
-            resolve(itemStock)
-        } else {
-            reject("error")
-        }},2000);
-        
-    });
-
     const [items, setItems] = useState([])
-    
-    useEffect(()=>{
-        myPromise.then(itemStock => setItems(itemStock))
-    })
-
+    const [itemsDefault, setItemsDefault] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
     const cat = useParams()
 
-    let result = []
+    useEffect(()=>{
+        setIsLoading(true)
+        const db = getFirestore();
+        const q = query(collection(db,"Productos"),where("cat","==", `${cat.id}`))
+        getDocs(q).then((snapshot)=>{
+            setItems(snapshot.docs.map((doc)=>({id: doc.id, ...doc.data()})));
+            setIsLoading(false)
+        });
+    }, [cat]);
 
-    if (cat.id == undefined){
-        result = items
-    }else {
-        result = items.filter( items => items.cat === cat.id);
-    }
+    useEffect(()=>{
+        setIsLoading(true)
+        const db = getFirestore();
+        const itemsCollection = collection(db, "Productos");
+        getDocs(itemsCollection).then((snapshot)=>{
+            setItemsDefault(snapshot.docs.map((doc)=>({id: doc.id, ...doc.data()})));
+            setIsLoading(false)
+        });
+    }, []);
 
      return (
     <div className="row rowItemList">
-        {items?.length <= 0? <h1>loading...</h1> : result.map((item) => (
+        {isLoading? <div className="row bounce"><BounceLoader color="#ff0099" size={150}/></div> : ((cat.id==undefined)? itemsDefault.map((item) => (
              <Item key={item.id} {...item}/>
-         ))}
+         )) : items.map((item) => (
+             <Item key={item.id} {...item}/>
+         )))}
         
      </div>
      )
