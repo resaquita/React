@@ -15,7 +15,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-export const ItemD = ({title, pictureUrl, price, description}) => {
+export const ItemD = ({title, pictureUrl, price, description,stock}) => {
 
     const {cartUpdate} = useContext(CartContext)
 
@@ -27,19 +27,23 @@ export const ItemD = ({title, pictureUrl, price, description}) => {
 
     const onAdd = value => setCount(value)
 
+    const {user} = useContext(CartContext)
+    
+
     const cartPush = (title, price, quantity, pictureUrl) =>{
        
         const duplicate = cart.some(item=>item.title===title)
 
         if(duplicate){
-            console.log("item already added")
             quantityUpdate(title, quantity)
         }else{
              cartUpdate({title, price, quantity, pictureUrl});
-            console.log("agregando")
     }
     }
-
+    const itemNavigator = () =>{
+        if(!user.user){navigate("/login")}
+        else{navigate("/cart")}
+    }
     let navigate = useNavigate()
     
     return (
@@ -48,10 +52,10 @@ export const ItemD = ({title, pictureUrl, price, description}) => {
             <img className="cardImg" alt="lala" src={pictureUrl}></img>
             <h3>${price}</h3>
             <h3>{count}</h3>
-            <ItemCount changeCount={onAdd}/>
+            <ItemCount stockCount={stock} changeCount={onAdd}/>
             <div>
                 <button onClick={(e)=>{if(count>0){cartPush(title,price,count,pictureUrl)}else{toast.error("No items selected!")}}} className="btn btnAgregar btn-primary">Add to cart</button>
-                {(cart.length>0)? <button onClick={(e)=>{if(cart.length>0){navigate("/cart")}else{toast.error("Cart is empty!")}}} className="btn btnAgregar btn-primary">Checkout</button>:<></>}
+                {(cart.length>0)? <button onClick={(e)=>{if(cart.length>0){itemNavigator()}else{toast.error("Cart is empty!")}}} className="btn btnAgregar btn-primary">Checkout</button>:<></>}
             </div>
             <ToastContainer />
         </div>

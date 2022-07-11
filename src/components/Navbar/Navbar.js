@@ -7,6 +7,7 @@ import { CartContext } from "../../Context/CartContext"
 
 export const Navbar = () => {
   const {cart} = useContext(CartContext)
+  const {user} = useContext(CartContext)
 
     return ( <div><nav className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="container-fluid">
@@ -27,6 +28,7 @@ export const Navbar = () => {
           </li>
         </ul>
       </div>
+      {(user.user)?<h3 className="username">{user.user}</h3>:<></>}
       {(cart.length>0)?<CartWidget />:<></>}
     </div>
   </nav></div>)

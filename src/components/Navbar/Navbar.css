@@ -25,6 +25,17 @@
     
 }
 
+.username{
+    font-size: 20px;
+    color: black;
+    margin-right: 50px;
+}
+
+@media only screen and (max-width: 991px) {
+    .username{
+        visibility: hidden;
+    }
+}
 @media only screen and (max-width: 400px) {
     .navbar-toggler{
         display: flex;
@@ -39,5 +50,7 @@
         background-size: 140%;
         
     }   
+    
+    
 }
 

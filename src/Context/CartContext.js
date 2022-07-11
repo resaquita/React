@@ -10,7 +10,7 @@ export const CartProvider = ({children}) => {
         const id = cart.length + 1
         const newItem = {...item, id};
         setCart([...cart, newItem]);
-        console.log(cart)
+
       }
 
     const quantityUpdate = (title, newQuantity) =>{
@@ -24,6 +24,11 @@ export const CartProvider = ({children}) => {
             }
         })
         setCart(newCart)
+    }
+
+    const [user, setUser] = useState({});
+    const loginUpdate = (props) => {
+        setUser(props)
     }
 
 
@@ -50,7 +55,7 @@ export const CartProvider = ({children}) => {
             setCart([...cart]))
     }
 
-    return <CartContext.Provider value={{cart, cartUpdate, count, quantityUpdate, removeAll, removeItem}}>
+    return <CartContext.Provider value={{cart, cartUpdate, count, quantityUpdate, removeAll, removeItem,user,loginUpdate}}>
         {children}
     </CartContext.Provider>
 }
