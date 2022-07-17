@@ -7,7 +7,7 @@ import "./ItemDetail.css"
 export const ItemDetail = () => {
     return (
     <div className ="container">
-        <div className="row justify-content-center">
+        <div className="section2 justify-content-center">
             <ItemDetailContainer/>
         </div>
     </div>

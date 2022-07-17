@@ -1,16 +1,32 @@
-.cardImg{
-    width: 50%;
-    height: 45%;
+.cardImgD{
+    width: 80%;
+    height: 55%;
+    border-radius: 10px;
 }
-.card{
-    width: 350px;
-    height: 300px;
-    align-items: center;
-    background-color: rgba(238, 235, 235, 0.568);
+.cardD{
     margin: 30px;
     padding: 20px;
+    background-color: rgba(238, 235, 235, 0.8);
+    border-radius: 10px;
+
+}
+.itemDPrice{
+    font-size: 50px;
+}
+.itemDCount {
+    font-size: 50px;
+}
+.itemTitle{
+    background-color: rgba(238, 235, 235, 0.8);
+    margin-top: 30px;
+    
 }
 
+.itemTitle h2{
+    font-size: 60px;
+    font-family: 'Russo One', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
+}
 .row{
     justify-content: center;
 
@@ -24,6 +40,12 @@ section{
     margin: 30px;
     background-color: rgba(238, 235, 235, 0.8);
     padding: 20px;
+    font-family: 'Russo One', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.btnAgregar{
+    width: 130px;
 }
 
 @media screen and (max-width: 576px) {

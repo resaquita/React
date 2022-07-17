@@ -48,20 +48,24 @@ export const ItemD = ({title, pictureUrl, price, description,stock}) => {
     
     return (
     <>
-        <div className="card col-lg-4">
-            <img className="cardImg" alt="lala" src={pictureUrl}></img>
-            <h3>${price}</h3>
-            <h3>{count}</h3>
-            <ItemCount stockCount={stock} changeCount={onAdd}/>
-            <div>
-                <button onClick={(e)=>{if(count>0){cartPush(title,price,count,pictureUrl)}else{toast.error("No items selected!")}}} className="btn btnAgregar btn-primary">Add to cart</button>
-                {(cart.length>0)? <button onClick={(e)=>{if(cart.length>0){itemNavigator()}else{toast.error("Cart is empty!")}}} className="btn btnAgregar btn-primary">Checkout</button>:<></>}
-            </div>
-            <ToastContainer />
+        <div className="row itemTitle">
+            <h2>{title}</h2>
         </div>
-        <div className="col-lg-4 pDescription">
-            <h3>{title}</h3>
-            <p >{description}</p>
+        <div className="row">
+            <div className="cardD col-lg-6 col-md-6">
+                <img className="cardImgD" alt="lala" src={pictureUrl}></img>
+                <h3 className="itemDPrice">Price: ${price}</h3>
+                <h3 className="itemDCount">{count}</h3>
+                <ItemCount stockCount={stock} changeCount={onAdd}/>
+                <div>
+                    <button onClick={(e)=>{if(count>0){cartPush(title,price,count,pictureUrl)}else{toast.error("No items selected!")}}} className="btn btnAgregar btn-primary">Add to cart</button>
+                    {(cart.length>0)? <button onClick={(e)=>{if(cart.length>0){itemNavigator()}else{toast.error("Cart is empty!")}}} className="btn btnAgregar btn-primary">Checkout</button>:<></>}
+                </div>
+                <ToastContainer />
+            </div>
+            <div className="col-lg-4 col-md-4 pDescription">
+                <p>{description}</p>
+            </div>
         </div>
     </>
     )

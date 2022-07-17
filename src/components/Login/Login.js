@@ -2,6 +2,9 @@ import { React, useContext, useState } from 'react';
 import "./Login.css"
 import {useNavigate} from "react-router-dom"
 import { CartContext } from '../../Context/CartContext';
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Login = () => {
   const [login, setLogin] = useState({});
@@ -16,8 +19,13 @@ export const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    loginUpdate(login)
-    navigate("/cart")
+    if(login.email===login.email2){
+      loginUpdate(login)
+      navigate("/cart")
+    } else {
+      toast.error("Emails don't match")
+    }
+    
   }
 
   let navigate = useNavigate();
@@ -51,7 +59,16 @@ export const Login = () => {
                 onChange={handleChange}
                 />
                 </label>
+                <label>Confirm your email: 
+                <input 
+                type="email" 
+                name="email2" 
+                value={login.email2 || ""} 
+                onChange={handleChange}
+                />
+                </label>
                 <button className='btn btn-primary btnLogin' type="submit" form="form1" value="Submit" >Proceed to Checkout</button>
+                <ToastContainer />
             </form>
         </div>
     </div>

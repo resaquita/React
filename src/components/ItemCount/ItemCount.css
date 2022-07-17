@@ -1,6 +1,6 @@
 .barraContador{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: baseline;
 
     }
@@ -19,3 +19,18 @@ h4{
 .btn-primary{
     margin: 5px;
 }
+.btnSuma{
+   background-color: rgb(240, 45, 136);
+   width: 60px;
+   font-size: 30px;
+   margin-right: 5px;
+}
+.btnSuma:hover, .btnResta:hover{
+    background-color: rgb(247, 93, 165);
+}
+.btnResta{
+    background-color: rgb(240, 45, 136);
+    width: 60px;
+    font-size: 30px;
+    margin-left: 5px;
+ }

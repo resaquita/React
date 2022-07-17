@@ -13,7 +13,7 @@ export const Item = ({title, pictureUrl, price, id}) => {
             <img className="cardImg" alt="lala" src={pictureUrl}></img>
             <h3>Price: ${price}</h3>
             <div>
-            <Link className="btn btn-info" to={`/item/${id}`}>Ver Mas</Link>
+            <Link className="btn btn-info" to={`/item/${id}`}>View Asset</Link>
             </div>
         </div>
     

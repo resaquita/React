@@ -24,9 +24,9 @@ export const ItemDetailContainer = () => {
 
 
     return (
-        <section className="row section2">
+        <>
             {item?  <ItemD {...item}/> : <div className="row bounce"><BounceLoader color="#ff0099" size={150}/></div>}
-        </section> 
+        </> 
     )}
     
             

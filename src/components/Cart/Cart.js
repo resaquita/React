@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { CartItem } from "../CartItem/CartItem";
 import { EmptyCart } from "./EmptyCart";
-import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom";
 
 export const Cart = () =>{
 
@@ -11,11 +11,11 @@ export const Cart = () =>{
 
     const {removeAll} = useContext(CartContext)
 
-    const [orderId, setOrderId] = useState()
-
     const {user} = useContext(CartContext)
 
     const [total, setTotal] = useState(0)
+
+    let navigate = useNavigate();
 
     useEffect(()=>{
         const priceTotal = cart.map((item)=>{
@@ -42,7 +42,8 @@ export const Cart = () =>{
             
             const db = getFirestore();
             const ordersCollection = collection(db, "Orders");
-            addDoc(ordersCollection, order).then(({id})=>setOrderId(id));
+            addDoc(ordersCollection, order).then(({id})=>navigate("/checkout", { state: {id} }));
+            
         }
 
     return (

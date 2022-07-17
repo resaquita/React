@@ -1,0 +1,36 @@
+.divCheckout{
+    background-color: white;
+    width: 70%;
+    height: 500px;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    
+}
+
+.divCheckout h2{
+    text-align: center;
+    margin-bottom: 50px;
+}
+.divCheckout div{
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 50px;
+    font-size: 30px ;
+}
+.divCheckout div p{
+    text-align: center;
+}
+.divCheckout div ul{
+    font-size: 20px ;
+}
+
+.rowCheckout{
+    margin-top: 100px;
+}
+
+.totalPrice{
+    font-weight: bold;
+    font-size: 30px ;
+    margin-top: 30px;
+}
