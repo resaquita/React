@@ -6,6 +6,10 @@
 
 https://reactbenamo.vercel.app/
 
+## Recorrido.GIF
+
+https://drive.google.com/file/d/1TmK7GkD11DyblnCc4neHfhFhOaqj1Lgp/view?usp=sharing
+
 ## Composicion
 
 -Bootstrap, Toastify, React-Spinners
