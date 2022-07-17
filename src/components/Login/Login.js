@@ -33,9 +33,9 @@ export const Login = () => {
   return (
     <div className='row loginRow'>
         <div className='formDiv col-lg-8'>
-            <h2>Login to Checkout</h2>
+            <h2 className='loginTitle'>Login to Checkout</h2>
             <form onSubmit={handleSubmit} id="form1">
-            <label>Enter your name: 
+            <label>Name: 
             <input 
                 type="text" 
                 name="user" 
@@ -43,7 +43,7 @@ export const Login = () => {
                 onChange={handleChange}
             />
             </label>
-            <label>Enter your phone number: 
+            <label>Phone number: 
                 <input 
                 type="number" 
                 name="phone" 
@@ -51,7 +51,7 @@ export const Login = () => {
                 onChange={handleChange}
                 />
                 </label>
-                <label>Enter your email: 
+                <label>Email: 
                 <input 
                 type="email" 
                 name="email" 

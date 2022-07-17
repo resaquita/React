@@ -5,15 +5,16 @@
 }
 
 .cartCard{
-    width: 700px;
-    height: 200px;
+    width: 60%;
+    height: auto;
     display: flex;
     align-items: center;
     background-color: rgba(238, 235, 235, 1);
     margin: 30px;
     border-color: black;
-    justify-content: space-between;
+    justify-content: space-around;
     border: solid 1px;
+    padding: 10px;
 }
 
 .emptyCartImg{
@@ -53,11 +54,25 @@
     align-items: center;
     justify-content: center;
 }
-h1{
+.cartItemTitle{
     font-size: 100px;
+    font-family: 'Russo One', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: rgba(238, 235, 235, 0.8);
+    margin-top: 30px;
+    border-radius: 10px;
+    width: 70%;
 }
+
+
+
 h2{
     font-weight: bold;
+}
+.cartTitle{
+    
+    font-family: 'Russo One', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 h3{
@@ -72,18 +87,65 @@ h3{
     margin-right: 20px;
 }
 
-@media only screen and (max-width: 576px){
-    h1{
-        font-size: 80px;
+@media only screen and (max-width: 1200px){
+.cartTitle{
+    font-size: 1.5rem;
+}
+.cartPrice{
+    font-size: 1.5rem;
+}
+.cartDiv h3{
+    font-size: 1.5rem;
+}
+
+}
+@media only screen and (max-width: 930px){
+    .cartCard{
+        flex-direction: column;
     }
-    h2{
+    .cartCardImg{
+        width: 70%;
+        height: 80%;
+        border-radius: 5px;
+    }
+    .cartBotRow{
+        margin-top: 0px;
+    }
+}
+
+@media only screen and (max-width: 756px){
+    .cartCard{
+        width: 80%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        background-color: rgba(238, 235, 235, 1);
+        margin: 30px;
+        border-color: black;
+        justify-content: space-between;
+        border: solid 1px;
+    }
+}
+@media only screen and (max-width: 576px){
+    .cartItemTitle{
+        font-size: 80px !important;
+    }
+    .cartTitle{
         font-size: 20px;
     }
     
-    h3{
+    .cartPrice{
        font-size: 15px
+    }
+    .cartDiv h3{
+        font-size: 15px;
     }
     .cartDiv{
         margin-right: 10px;
+    }
+    .btnRmv{
+        font-size: 15px;
+        padding: 2px;
+        width: 30%;
     }
 }

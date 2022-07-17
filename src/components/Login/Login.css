@@ -12,11 +12,17 @@ form{
     flex-direction: column;
     font-size: 25px;
     padding-top: 50px;
+    
 }
 form label{
     margin: 10px;
+    font-family: 'Russo One', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
 }
-
+.loginTitle{
+    font-family: 'Russo One', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
+}
 .btnLogin{
     background-color: rgb(240, 45, 136) !important;
     border: 1px rgb(182, 33, 102) solid;
@@ -43,4 +49,30 @@ input{
 }
 input:hover{
     background-color: rgb(194, 193, 193);
+}
+@media screen and (max-width: 668px){
+form{
+    padding: 105px;
+    font-size: 25px;
+    padding-top: 50px;
+    
+}
+}
+
+@media screen and (max-width: 457px){
+    form{
+        padding: 30px;
+        
+    }
+}
+
+@media screen and (max-width: 380px){
+    label{
+        font-size: 20px;
+    }
+    
+    input{
+        width: 90%;
+        
+    }
 }

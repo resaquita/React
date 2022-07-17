@@ -13,6 +13,11 @@
     border-color: black;
 }
 
+.itemTitle{
+    font-family: 'Russo One', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
+    margin-top: 14px;
+}
 .card:hover{
     transform: scale(1.03);
     transition: 300ms;

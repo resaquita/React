@@ -48,7 +48,7 @@ export const Cart = () =>{
 
     return (
         <div className="row cartRow">
-            <h1>Cart</h1>
+            <h1 className="cartItemTitle">Cart</h1>
             
         {cart?.length <= 0? <EmptyCart/> : <div> {cart.map((item) => (
             <div key={item.id} className="row rowItemList">

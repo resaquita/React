@@ -1,18 +1,21 @@
 .divCheckout{
-    background-color: white;
-    width: 70%;
-    height: 500px;
+    background-color: rgba(238, 235, 235, 1);
+    width: 90%;
+    height: auto;
     border: 2px solid black;
     border-radius: 5px;
     padding: 20px;
     
+}
+.ulCheckout{
+    list-style-type: none;
 }
 
 .divCheckout h2{
     text-align: center;
     margin-bottom: 50px;
 }
-.divCheckout div{
+.divOrderDetails{
     margin-left: 30%;
     margin-right: 30%;
     margin-top: 50px;
@@ -28,9 +31,35 @@
 .rowCheckout{
     margin-top: 100px;
 }
+.orderDetails{
+    text-decoration: underline;
+}
 
 .totalPrice{
     font-weight: bold;
     font-size: 30px ;
     margin-top: 30px;
+}
+@media screen and (max-width: 768px) {
+    .orderDetails{
+        font-size: 25px;
+    }
+    .divOrderDetails{
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 50px;
+        font-size: 30px ;
+    }
+    
+}
+@media screen and (max-width: 380px) {
+    .totalPrice{
+        font-size: 25px;
+    }
+    .ulCheckout li{
+        font-size: 15px;
+    }
+    .orderDetails{
+        font-size: 20px;
+    }
 }

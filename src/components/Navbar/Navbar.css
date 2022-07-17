@@ -50,7 +50,9 @@
         background-size: 140%;
         
     }   
-    
+    .navbar-brand{
+        font-size: 1rem;
+    }
     
 }
 

@@ -19,7 +19,7 @@
 .itemTitle{
     background-color: rgba(238, 235, 235, 0.8);
     margin-top: 30px;
-    
+    border-radius: 10px;
 }
 
 .itemTitle h2{
@@ -36,16 +36,49 @@ section{
     margin-top: 50px !important;
 }
 
+.ulItemD{
+    list-style-type: none;
+    text-align: left;
+}
 .pDescription{
     margin: 30px;
     background-color: rgba(238, 235, 235, 0.8);
     padding: 20px;
     font-family: 'Russo One', sans-serif;
     font-family: 'Space Grotesk', sans-serif;
+    border-radius: 10px;
+}
+.recorded{
+    font-weight: bold;
+}
+.details{
+    text-align: left;
 }
 
 .btnAgregar{
     width: 130px;
+}
+
+@media screen and (max-width: 1200px){
+    .itemDPrice{
+        font-size: 35px;
+    }
+    .itemDCount {
+        font-size: 40px;
+    }
+}
+@media screen and (max-width: 992px){
+    .btnAgregar{
+        width: 100px;
+        font-size: 15px !important;
+        padding: 2px;
+    }
+    .btnSuma, .btnResta{
+        width: 40px !important;
+        font-size: 15px !important;
+        padding: 2px;
+    }
+    
 }
 
 @media screen and (max-width: 576px) {
@@ -54,5 +87,23 @@ section{
         height: 250px;
         margin: 30px;
         padding: 20px;
+    }
+    .itemTitle h2{
+        font-size: 40px ;
+    }
+    .itemDPrice{
+        font-size: 30px;
+    }
+    .itemDCount {
+        font-size: 35px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .itemTitle h2{
+        font-size: 30px ;
+    }
+    .cardD{
+        padding-bottom: 40px;
     }
 }

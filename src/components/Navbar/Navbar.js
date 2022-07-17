@@ -24,7 +24,7 @@ export const Navbar = () => {
             <Link className="nav-link" to="/category/Music">Songs</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/category/Pack">Music</Link>
+            <Link className="nav-link" to="/category/Pack">Music Packs</Link>
           </li>
         </ul>
       </div>
