@@ -19,12 +19,20 @@ export const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if(login.email===login.email2){
+    if(login.user==""){
+      toast.error("Input your Username")
+    } else if (login.phone==""){
+      toast.error("Input your Phone Number")
+    } else if(login.email==""){
+      toast.error("Input your Email")
+    } else if (login.email!==login.email2){
+      toast.error("Emails don't match")
+    } else{
       loginUpdate(login)
       navigate("/cart")
-    } else {
-      toast.error("Emails don't match")
     }
+
+    
     
   }
 
