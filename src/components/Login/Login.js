@@ -32,8 +32,6 @@ export const Login = () => {
       navigate("/cart")
     }
 
-    
-    
   }
 
   let navigate = useNavigate();
