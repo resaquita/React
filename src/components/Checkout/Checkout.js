@@ -36,7 +36,7 @@ export const Checkout = () =>{
     return (
         <div className="container">
             <div className="row rowCheckout">
-                {order!=undefined&& username!=undefined? <div className="divCheckout">
+                {order!=undefined && username!=undefined? <div className="divCheckout">
                     <h2>Thank you for shopping with us {username.user} !</h2>
                     <p>Your order number <b>{orderId}</b> has been correctly processed on {order.date}</p>
                     <p>An email will be sent to {username.email} containing information about your purchase. If you have any quesitons about your purchase, email us at support@vgmusic.com</p>

@@ -33,14 +33,16 @@ export const ItemListContainer = () => {
     }, []);
 
      return (
-    <div className="row rowItemList">
-        {isLoading? <div className="row bounce"><BounceLoader color="#ff0099" size={150}/></div> : ((cat.id==undefined)? itemsDefault.map((item) => (
-             <Item key={item.id} {...item}/>
-         )) : items.map((item) => (
-             <Item key={item.id} {...item}/>
-         )))}
-        
-     </div>
+        <div className ="container">
+            <div className="row rowItemList">
+                {isLoading? <div className="row bounce"><BounceLoader color="#ff0099" size={150}/></div> : ((cat.id==undefined)? itemsDefault.map((item) => (
+                    <Item key={item.id} {...item}/>
+                )) : items.map((item) => (
+                    <Item key={item.id} {...item}/>
+                )))}
+                
+            </div>
+    </div>
      )
     
 }

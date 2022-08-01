@@ -31,18 +31,10 @@ export const CartProvider = ({children}) => {
         setUser(props)
     }
 
-
     const [count,setCount] = useState()
 
     useEffect(()=>{
-        const cartCopy2 = [...cart]
-
-        const newCart2 = cartCopy2.map((item)=>{
-            const q = item.quantity
-            return {q}
-        }
-        )
-        const cartCount = newCart2.reduce((partialSum, item) => partialSum + item.q, 0)
+        const cartCount = cart.reduce((partialSum, item) => partialSum + item.quantity, 0)
         setCount(cartCount)
     },[cart])
 
@@ -59,4 +51,4 @@ export const CartProvider = ({children}) => {
         {children}
     </CartContext.Provider>
 }
-
+    
