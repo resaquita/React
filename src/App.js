@@ -6,9 +6,9 @@ import { CartProvider } from './Context/CartContext';
 
 function App() {
   return (
-  <CartProvider>
-    <AppRouting/>
-  </CartProvider>
+    <CartProvider>
+      <AppRouting/>
+    </CartProvider>
   )
 
 }

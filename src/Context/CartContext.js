@@ -43,8 +43,10 @@ export const CartProvider = ({children}) => {
     }
 
     const removeItem = (title) =>{
-        return (cart.splice(cart.findIndex(i => i.title === title), 1),
-            setCart([...cart]))
+        let cart2 = cart.filter(t=>t.title!==title)
+        return (
+            setCart([...cart2])
+            )
     }
 
     return <CartContext.Provider value={{cart, cartUpdate, count, quantityUpdate, removeAll, removeItem,user,loginUpdate}}>
