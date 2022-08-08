@@ -1,13 +1,20 @@
 import "./CartWidget.css"
 
-import React, { useContext } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { CartContext } from "../../Context/CartContext"
 import { Link } from "react-router-dom"
 
 
 
 export const CartWidget = () => {
-    const {count} = useContext(CartContext)
+    const {cart} = useContext(CartContext)
+
+    const [count,setCount] = useState()
+
+    useEffect(()=>{
+        const cartCount = cart.reduce((partialSum, item) => partialSum + item.quantity, 0)
+        setCount(cartCount)
+    },[cart])
     
 return <div>
     <Link className="divWidget" to="/cart"> 
