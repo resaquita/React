@@ -55,6 +55,7 @@ export const Cart = () =>{
             <CartItem {...item}/>
             </div>
         ))}<div className="row cartBotRow">
+            <h3 className="priceTotal">The total is ${total}</h3>
             <button className="btn btn-danger btnRmv" onClick={removeAll}>Remove All</button>
             <button className="btn btn-success btnRmv" onClick={sendOrder}>Check out</button>
             </div>

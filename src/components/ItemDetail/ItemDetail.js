@@ -18,7 +18,7 @@ import { Disclaimer } from "./Disclaimer";
 
 
 
-export const ItemDetail = ({title, pictureUrl, price, description,stock}) => {
+export const ItemDetail = ({id, title, pictureUrl, price, description,stock}) => {
 
     const {cartUpdate} = useContext(CartContext)
 
@@ -33,25 +33,25 @@ export const ItemDetail = ({title, pictureUrl, price, description,stock}) => {
     const {user} = useContext(CartContext)
     
 
-    const cartPush = (title, price, quantity, pictureUrl,stock) =>{
+    const cartPush = (id, title, price, quantity, pictureUrl,stock) =>{
        
-        const duplicate = cart.some(item=>item.title===title)
-        
-
+        const duplicate = cart.some(item=>item.id===id)
+        console.log(duplicate)
+        console.log(cart)
         if(duplicate){
             const cartQ = cart.find(q=>{
-                return q.title === title
+                return q.id === id
             })
             const q = cartQ.quantity + quantity
             if(q<=stock){
-                quantityUpdate(title, q)
+                quantityUpdate(id, q)
             } else {
-                quantityUpdate(title, stock)
+                quantityUpdate(id, stock)
                 toast.error("Not enough stock!")
             }
             
         }else{
-             cartUpdate({title, price, quantity, pictureUrl});
+             cartUpdate({id, title, price, quantity, pictureUrl});
     }
     }
     const itemNavigator = () =>{
@@ -72,7 +72,7 @@ export const ItemDetail = ({title, pictureUrl, price, description,stock}) => {
                 <h3 className="itemDCount">{count}</h3>
                 <ItemCount stockCount={stock} changeCount={onAdd}/>
                 <div>
-                    <button onClick={(e)=>{if(count>0){cartPush(title,price,count,pictureUrl,stock)}else{toast.error("No items selected!")}}} className="btn btnAgregar btn-primary">Add to cart</button>
+                    <button onClick={(e)=>{if(count>0){cartPush(id, title,price,count,pictureUrl,stock)}else{toast.error("No items selected!")}}} className="btn btnAgregar btn-primary">Add to cart</button>
                     {(cart.length>0)? <button onClick={(e)=>{if(cart.length>0){itemNavigator()}else{toast.error("Cart is empty!")}}} className="btn btnAgregar btn-primary">Checkout</button>:<></>}
                 </div>
                 <ToastContainer />
