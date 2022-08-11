@@ -12,7 +12,7 @@ export const CartWidget = () => {
     const [count,setCount] = useState()
 
     useEffect(()=>{
-        const cartCount = cart.reduce((partialSum, item) => partialSum + item.quantity, 0)
+        const cartCount = cart.reduce((partialSum, item) => partialSum + item.count, 0)
         setCount(cartCount)
     },[cart])
     

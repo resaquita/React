@@ -24,8 +24,6 @@ export const ItemDetail = ({id, title, pictureUrl, price, description,stock}) =>
 
     const {cart} = useContext(CartContext)
 
-    const {quantityUpdate} = useContext(CartContext)
-
     const [count, setCount] = useState(0)
 
     const onAdd = value => setCount(value)
@@ -33,27 +31,7 @@ export const ItemDetail = ({id, title, pictureUrl, price, description,stock}) =>
     const {user} = useContext(CartContext)
     
 
-    const cartPush = (id, title, price, quantity, pictureUrl,stock) =>{
-       
-        const duplicate = cart.some(item=>item.id===id)
-        console.log(duplicate)
-        console.log(cart)
-        if(duplicate){
-            const cartQ = cart.find(q=>{
-                return q.id === id
-            })
-            const q = cartQ.quantity + quantity
-            if(q<=stock){
-                quantityUpdate(id, q)
-            } else {
-                quantityUpdate(id, stock)
-                toast.error("Not enough stock!")
-            }
-            
-        }else{
-             cartUpdate({id, title, price, quantity, pictureUrl});
-    }
-    }
+    
     const itemNavigator = () =>{
         if(!user.user){navigate("/login")}
         else{navigate("/cart")}
@@ -72,7 +50,7 @@ export const ItemDetail = ({id, title, pictureUrl, price, description,stock}) =>
                 <h3 className="itemDCount">{count}</h3>
                 <ItemCount stockCount={stock} changeCount={onAdd}/>
                 <div>
-                    <button onClick={(e)=>{if(count>0){cartPush(id, title,price,count,pictureUrl,stock)}else{toast.error("No items selected!")}}} className="btn btnAgregar btn-primary">Add to cart</button>
+                    <button onClick={(e)=>{if(count>0){cartUpdate({id, title, price, count, pictureUrl, stock})}else{toast.error("No items selected!")}}} className="btn btnAgregar btn-primary">Add to cart</button>
                     {(cart.length>0)? <button onClick={(e)=>{if(cart.length>0){itemNavigator()}else{toast.error("Cart is empty!")}}} className="btn btnAgregar btn-primary">Checkout</button>:<></>}
                 </div>
                 <ToastContainer />

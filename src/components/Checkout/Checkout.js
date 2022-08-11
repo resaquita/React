@@ -44,7 +44,7 @@ export const Checkout = () =>{
                         <p className="orderDetails">Order details:</p>
                         <ul className="ulCheckout">
                             {itemList.map((item)=>(
-                                <li key={item.title}>{item.title} x {item.quantity}  </li>  
+                                <li key={item.title}>{item.title} x {item.count}  </li>  
                             ))}
                         </ul>
                         

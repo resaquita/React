@@ -1,7 +1,7 @@
 import "./CartItem.css"
 import React, { useContext } from "react"
 import { CartContext } from "../../Context/CartContext"
-export const CartItem = ({title, pictureUrl, price, quantity}) => {
+export const CartItem = ({title, pictureUrl, price, count}) => {
 
 const {removeItem} = useContext(CartContext)
 
@@ -16,7 +16,7 @@ const rmvItem = (title) =>{
                 <h2 className="cartTitle">{title}</h2>
                 <h3 className="cartPrice">Price: ${price}</h3>
                 <div>
-                    <h3>Quantity: {quantity}</h3>
+                    <h3>Quantity: {count}</h3>
                     <button className="btn btn-secondary" onClick={(e)=>rmvItem(title)}>Remove</button>
                 </div>
                 

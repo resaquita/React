@@ -19,7 +19,7 @@ export const Cart = () =>{
 
     useEffect(()=>{
         const priceTotal = cart.map((item)=>{
-            const a=item.quantity*item.price
+            const a=item.count*item.price
             return a
         })
         const sum = priceTotal.reduce((partialSum, a) => partialSum + a, 0);
@@ -30,7 +30,7 @@ export const Cart = () =>{
         const date = new Date().toLocaleString() + ""
         const items = cart.map((item)=>{
             return ({title:item.title,
-            quantity:item.quantity,
+            count:item.count,
             price:item.price,})
         })
             const order = {
