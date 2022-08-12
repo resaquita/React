@@ -1,6 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -31,8 +31,17 @@ export const CartProvider = ({children}) => {
         }
     }
 
+    const [total, setTotal] = useState()
 
-    
+    useEffect(()=>{
+        const priceTotal = cart.map((item)=>{
+            const a=item.count*item.price
+            return a
+        })
+        const sum = priceTotal.reduce((partialSum, a) => partialSum + a, 0);
+        setTotal(sum)
+    },[cart])
+
     const quantityUpdate = (id, newQuantity) =>{
         const cartCopy = [...cart];
 
@@ -62,7 +71,7 @@ export const CartProvider = ({children}) => {
             )
     }
 
-    return <CartContext.Provider value={{cart, cartUpdate, quantityUpdate, removeAll, removeItem,user,loginUpdate}}>
+    return <CartContext.Provider value={{cart, cartUpdate, quantityUpdate, removeAll, removeItem,user,loginUpdate, total}}>
         {children}
     </CartContext.Provider>
 }

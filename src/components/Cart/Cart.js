@@ -1,5 +1,5 @@
-import { addDoc, collection, Firestore, getFirestore, snapshotEqual } from "firebase/firestore";
-import React, { useContext, useEffect, useState } from "react";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
+import React, { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { CartItem } from "../CartItem/CartItem";
 import { EmptyCart } from "./EmptyCart";
@@ -13,18 +13,9 @@ export const Cart = () =>{
 
     const {user} = useContext(CartContext)
 
-    const [total, setTotal] = useState(0)
+   const {total} = useContext(CartContext)
 
     let navigate = useNavigate();
-
-    useEffect(()=>{
-        const priceTotal = cart.map((item)=>{
-            const a=item.count*item.price
-            return a
-        })
-        const sum = priceTotal.reduce((partialSum, a) => partialSum + a, 0);
-        setTotal(sum)
-    },[cart])
 
     const sendOrder = () => {
         const date = new Date().toLocaleString() + ""
