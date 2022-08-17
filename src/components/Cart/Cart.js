@@ -17,6 +17,11 @@ export const Cart = () =>{
 
     let navigate = useNavigate();
 
+    const itemNavigator = () =>{
+        if(!user.user){navigate("/login")}
+        else{sendOrder()}
+    }
+
     const sendOrder = () => {
         const date = new Date().toLocaleString() + ""
         const items = cart.map((item)=>{
@@ -48,7 +53,7 @@ export const Cart = () =>{
         ))}<div className="row cartBotRow">
             <h3 className="priceTotal">The total is ${total}</h3>
             <button className="btn btn-danger btnRmv" onClick={removeAll}>Remove All</button>
-            <button className="btn btn-success btnRmv" onClick={sendOrder}>Check out</button>
+            <button className="btn btn-success btnRmv" onClick={itemNavigator}>Check out</button>
             </div>
             </div>}
             
